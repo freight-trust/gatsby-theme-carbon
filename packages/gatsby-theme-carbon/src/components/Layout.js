@@ -1,14 +1,14 @@
 /* eslint-disable import/no-unresolved */
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect } from "react";
 
-import Meta from './Meta';
-import LeftNav from './LeftNav';
-import Header from './Header';
-import Switcher from './Switcher';
-import Footer from './Footer';
-import Container from './Container';
+import LeftNav from "gatsby-theme-carbon/src/components/LeftNav";
+import Meta from "gatsby-theme-carbon/src/components/Meta";
+import Header from "gatsby-theme-carbon/src/components/Header";
+import Switcher from "gatsby-theme-carbon/src/components/Switcher";
+import Footer from "gatsby-theme-carbon/src/components/Footer";
+import Container from "gatsby-theme-carbon/src/components/Container";
 
-import '../styles/index.scss';
+import "gatsby-theme-carbon/src/styles/index.scss";
 
 const Layout = ({
   children,
@@ -19,16 +19,18 @@ const Layout = ({
   pageDescription,
   pageKeywords,
   tabs,
+  customNavItems,
+  noResourceLinks,
 }) => {
   const is404 = children.key === null;
 
   useLayoutEffect(() => {
     // eslint-disable-next-line global-require
-    const scroll = require('smooth-scroll')('a[href*="#"]', {
+    const scroll = require(`smooth-scroll`)(`a[href*="#"]`, {
       speed: 400,
       durationMin: 250,
       durationMax: 700,
-      easing: 'easeInOutCubic',
+      easing: `easeInOutCubic`,
       clip: true,
       offset: tabs ? 112 : 64,
     });
@@ -45,10 +47,21 @@ const Layout = ({
       />
       <Header />
       <Switcher />
-      <LeftNav homepage={homepage} is404Page={is404} theme={theme} />
+
+      {!homepage && (
+        <LeftNav
+          homepage={homepage}
+          is404Page={is404}
+          theme='dark'
+          isCustomNav={!!customNavItems}
+          customNavItems={customNavItems}
+          noResourceLinks={noResourceLinks}
+        />
+      )}
+
       <Container homepage={homepage} theme={theme}>
         {children}
-        <Footer />
+        <Footer homepage={homepage} />
       </Container>
     </>
   );

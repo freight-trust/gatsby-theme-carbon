@@ -1,28 +1,37 @@
+@import "@carbon/themes/scss/themes";
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;400;600;700&display=swap");
+// Use the gray 10 theme
+$carbon--theme: $carbon--theme--g90;
+@include carbon--theme();
+
 .column {
-  @include carbon--type-style('display-01');
+  @include carbon--type-style("display-01");
   color: $inverse-01;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   height: 100%;
 }
 
 .row {
   height: 100%;
-}
-
-.row h1 {
-  padding: 2rem 0;
+  margin: 0px !important;
 }
 
 .grid {
   background-size: cover;
-  height: 50vh;
-  max-height: 560px;
+  // max-height: 560px;
   width: 100%;
   max-width: 100%;
 
-  @include carbon--breakpoint('lg') {
-    padding-left: 256px;
+  background-color: $ui-background;
+  color: $ui-05;
+
+  padding-top: $layout-07;
+  padding-bottom: $layout-07;
+
+  @include carbon--breakpoint("lg") {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
   }
 }
