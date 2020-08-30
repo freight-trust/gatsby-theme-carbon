@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-theme-carbon-workspace",
+  "name": "gatsby-theme-carbon-base-workspace",
   "private": true,
   "repository": {
-    "url": "git@github.com:carbon-design-system/gatsby-theme-carbon.git",
+    "url": "git@github.com:freight-trust/gatsby-theme-carbon-base.git",
     "type": "git"
   },
   "license": "Apache 2.0",
