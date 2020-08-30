@@ -1,80 +1,62 @@
-import React, { useContext, useRef, useEffect } from 'react';
-import classnames from 'classnames';
-import { SideNav, SideNavItems } from 'carbon-components-react';
-import { useNavItems } from '../../util/NavItems';
+/* eslint-disable import/no-unresolved */
+// TODO: FIX ESLINT RULE FOR NO UN-RESOLVED
+/**
+ *   SPDX-License-Identifier: Apache-2.0
+ *   SPDXVersion: SPDX-2.2
+ *   SPDX-FileCopyrightText: Copyright 2020 FreightTrust and Clearing Corporation
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *   you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+import React, { useContext } from "react";
+import classnames from "classnames";
+import { SideNav, SideNavItems } from "carbon-components-react";
+import { useNavItems } from "gatsby-theme-carbon/src/components/LeftNav/LeftNavItemProvider";
 
-import NavContext from '../../util/context/NavContext';
-import LeftNavItem from './LeftNavItem';
-import LeftNavResourceLinks from './ResourceLinks';
+import NavContext from "gatsby-theme-carbon/src/util/context/NavContext";
+import LeftNavItem from "gatsby-theme-carbon/src/components/LeftNav/LeftNavItem";
+import LeftNavResourceLinks from "gatsby-theme-carbon/src/components/LeftNav/ResourceLinks";
 
-import LeftNavWrapper from './LeftNavWrapper';
-import { sideNavDark } from './LeftNav.module.scss';
-import useMetadata from '../../util/hooks/useMetadata';
+import LeftNavWrapper from "gatsby-theme-carbon/src/components/LeftNav/LeftNavWrapper";
+import { sideNavDark } from "gatsby-theme-carbon/src/components/LeftNav/LeftNav.module.scss";
 
-const LeftNav = (props) => {
-  const {
-    leftNavIsOpen,
-    leftNavScrollTop,
-    setLeftNavScrollTop,
-    toggleNavState,
-  } = useContext(NavContext);
+const LeftNav = props => {
+  const { leftNavIsOpen } = useContext(NavContext);
 
-  const sideNavRef = useRef();
-  const sideNavListRef = useRef();
+  const defaultNavItems = useNavItems();
 
-  useEffect(() => {
-    sideNavListRef.current = sideNavRef.current.querySelector('.sidenav-list');
-  }, []);
+  const { isCustomNav, customNavItems } = props;
 
-  useEffect(() => {
-    sideNavListRef.current.addEventListener('scroll', (e) => {
-      setLeftNavScrollTop(e.target.scrollTop);
-    });
-  }, [setLeftNavScrollTop]);
-
-  useEffect(() => {
-    if (leftNavScrollTop >= 0 && !sideNavListRef?.current.scrollTop) {
-      sideNavListRef.current.scrollTop = leftNavScrollTop;
-    }
-  }, [leftNavScrollTop]);
-
-  const navItems = useNavItems();
-  const { navigationStyle } = useMetadata();
-
-  const closeSwitcher = () => {
-    toggleNavState('switcherIsOpen', 'close');
-  };
+  const navItems = isCustomNav ? customNavItems : defaultNavItems;
 
   // TODO: replace old addon website styles with sass modules, move to wrapper
   return (
-    <LeftNavWrapper
-      expanded={leftNavIsOpen}
-      onClick={closeSwitcher}
-      onKeyPress={closeSwitcher}>
+    <LeftNavWrapper expanded={leftNavIsOpen}>
       <SideNav
-        ref={sideNavRef}
-        aria-label="Side navigation"
-        expanded={navigationStyle ? leftNavIsOpen : true}
-        defaultExpanded={!navigationStyle}
-        isPersistent={!navigationStyle}
+        expanded
+        defaultExpanded
+        aria-label='Side navigation'
         className={classnames({
-          [sideNavDark]: props.theme === 'dark' || props.homepage,
-          'bx--side-nav--website': true,
-          'bx--side-nav--website--dark':
-            props.theme === 'dark' || props.homepage,
-          'bx--side-nav--website--light':
-            props.theme !== 'dark' && !props.homepage,
-        })}>
-        <SideNavItems className="sidenav-list">
+          [sideNavDark]: props.theme === `dark` || props.homepage,
+          "bx--side-nav--website": true,
+          "bx--side-nav--website--dark": props.theme === `dark` || props.homepage,
+          "bx--side-nav--website--light": props.theme !== `dark` && !props.homepage,
+        })}
+      >
+        <SideNavItems>
           {navItems.map((item, i) => (
-            <LeftNavItem
-              items={item.pages}
-              category={item.title}
-              key={i}
-              hasDivider={item.hasDivider}
-            />
+            <LeftNavItem items={item.pages} category={item.title} isSpace={item.isSpace} key={i} />
           ))}
-          <LeftNavResourceLinks />
+          {props.noResourceLinks ? null : <LeftNavResourceLinks />}
         </SideNavItems>
       </SideNav>
     </LeftNavWrapper>
