@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "name": "gatsby-theme-carbon",
-  "alias": "gatsby-theme-carbon",
+  "name": "gatsby-theme-carbon-base",
+  "alias": "gatsby-theme-carbon-base",
   "public": true,
   "builds": [
     {

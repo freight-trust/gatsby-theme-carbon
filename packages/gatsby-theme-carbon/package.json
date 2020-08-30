@@ -1,10 +1,10 @@
 {
-  "name": "gatsby-theme-carbon",
+  "name": "gatsby-theme-carbon-base",
   "version": "1.26.9",
   "main": "index.js",
   "author": "vpicone <vp@vincepic.one> (@vpicone)",
   "repository": {
-    "url": "git@github.com:carbon-design-system/gatsby-theme-carbon.git",
+    "url": "git@github.com:freight-trust/gatsby-theme-carbon-base.git",
     "type": "git"
   },
   "license": "Apache 2.0",
