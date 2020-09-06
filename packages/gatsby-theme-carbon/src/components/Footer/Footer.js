@@ -7,11 +7,10 @@ import {
   grid,
   nav,
   listItem,
-  logo,
   content,
 } from './Footer.module.scss';
 
-const Footer = ({ Content, links, Logo }) => {
+const Footer = ({ Content, links }) => {
   const { firstCol, secondCol } = links;
   const { site } = useStaticQuery(graphql`
     query BUILD_TIME_QUERY {
@@ -55,11 +54,6 @@ const Footer = ({ Content, links, Logo }) => {
             colSm={3}
             offsetLg={2}>
             <Content buildTime={site.buildTime} />
-          </Column>
-        </Row>
-        <Row>
-          <Column colLg={3}>
-            <Logo />
           </Column>
         </Row>
       </Grid>
