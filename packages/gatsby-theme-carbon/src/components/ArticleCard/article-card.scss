@@ -5,9 +5,6 @@
   position: relative;
   transition: background $duration--fast-01;
   text-decoration: none;
-  @include carbon--breakpoint('lg') {
-    margin-bottom: var(--space);
-  }
 }
 
 .#{$prefix}--article-card:hover .#{$prefix}--tile {
@@ -19,13 +16,17 @@
 }
 
 .#{$prefix}--article-card__title {
+<<<<<<< HEAD
+  @include carbon--type-style("productive-heading-03");
+=======
   @include carbon--type-style('body-short-02');
+>>>>>>> main
   text-decoration: none;
   color: $text-01;
 }
 
 .#{$prefix}--article-card__subtitle {
-  @include carbon--type-style('heading-01');
+  @include carbon--type-style("heading-01");
   font-weight: 400;
   text-decoration: none;
   color: $text-01;
@@ -40,7 +41,7 @@
 }
 
 .#{$prefix}--article-card__info p {
-  @include carbon--type-style('caption-01');
+  @include carbon--type-style("caption-01");
 }
 
 .#{$prefix}--article-card__img .gatsby-resp-image-wrapper {

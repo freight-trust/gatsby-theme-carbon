@@ -1,10 +1,20 @@
+<<<<<<< HEAD
+import React from "react";
+import ThemeFeedbackDialog from "gatsby-theme-carbon/src/components/FeedbackDialog/FeedbackDialog";
+=======
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { FaceWink20 } from '@carbon/icons-react';
+>>>>>>> main
 
-import LaunchButton from './LaunchButton';
-import Form from './Form';
+const FeedbackDialog = ({ props }) => {
+  const onSubmit = data => {
+    console.log({ ...data });
+  };
 
+<<<<<<< HEAD
+  return <ThemeFeedbackDialog {...props} onSubmit={onSubmit} />;
+=======
 const FeedbackDialog = ({ onSubmit }) => {
   const [visible, setVisible] = useState(false);
 
@@ -22,6 +32,7 @@ const FeedbackDialog = ({ onSubmit }) => {
 
 FeedbackDialog.propTypes = {
   onSubmit: PropTypes.func,
+>>>>>>> main
 };
 
 export default FeedbackDialog;

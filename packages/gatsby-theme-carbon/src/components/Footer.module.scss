@@ -1,0 +1,193 @@
+@import "@carbon/themes/scss/themes";
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;400;600;700&display=swap");
+
+// TODO: Documentation here contradicts actual usage
+// Use the gray 10 theme
+$carbon--theme: $carbon--theme--g90;
+@include carbon--theme();
+
+.footerContent {
+  padding: $layout-04 $layout-05;
+
+  color: $text-01;
+
+  background: black;
+}
+
+.footerContentDefault {
+  // padding-left: calc(25% + 2rem);
+
+  @include carbon--breakpoint("lg") {
+    padding-left: calc(25% + 2rem);
+  }
+}
+
+.footerContent h1 {
+  @include carbon--type-style("productive-heading-03");
+  margin-bottom: $spacing-07;
+  font-family: "IBM Plex Sans", sans-serif;
+  // margin-top: $spacing-07;
+}
+
+.footerContent h3 {
+  @include carbon--type-style("productive-heading-01");
+  font-family: "IBM Plex Sans", sans-serif;
+  margin-top: $spacing-08;
+}
+
+.footerContent h2 {
+  @include carbon--type-style("productive-heading-03");
+  margin-top: $spacing-05;
+}
+
+.footerContent p {
+  @include carbon--type-style("body-long-01");
+  margin-top: $spacing-05;
+}
+
+.footerText {
+  border-right: 1px solid #000000;
+}
+
+.footerContent a {
+  width: 100%;
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+
+  color: $text-01;
+
+  @include carbon--type-style("body-short-01");
+  font-family: "IBM Plex Sans", sans-serif;
+  margin-top: $spacing-04;
+  margin-left: $spacing-04;
+  margin-right: $spacing-04;
+}
+
+.footerContent h5 {
+  @include carbon--type-style("productive-heading-01");
+  font-family: "IBM Plex Sans", sans-serif;
+  margin-left: $spacing-04;
+  // margin-top: $spacing-08;
+  margin-bottom: $spacing-06;
+}
+
+.footerRow > div {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.footerContent h6 {
+  text-align: center;
+
+  @include carbon--type-style("productive-heading-01");
+  font-family: "IBM Plex Sans", sans-serif;
+  margin-top: $spacing-08;
+}
+
+.footerContent button {
+  margin-bottom: $spacing-05;
+  width: 130px;
+  float: right;
+}
+
+// .footerContent button:first-child {
+//   margin-top: $spacing-08;
+// }
+
+.footerRow {
+  border-bottom: 1px solid $ui-04;
+  padding-bottom: $layout-04;
+}
+
+.footerLinkCol div {
+  width: 33%;
+}
+
+.footerLinkCol {
+  display: flex;
+  h1 {
+    padding-left: $spacing-05;
+  }
+
+  .hide-on-mobile {
+    div {
+      width: 100%;
+    }
+  }
+}
+
+.footerRow > div {
+  padding: 0px !important;
+}
+
+.footerLastRow {
+  padding-top: $spacing-06;
+  padding-bottom: $spacing-08;
+
+  span {
+    margin-right: $spacing-06;
+  }
+}
+
+.footerFollowSection {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.footerFollowSection p {
+  // float: right;
+  width: 100%;
+  text-align: right;
+}
+
+.footerButtonCol div {
+  width: 100%;
+  display: inline-block;
+}
+// TODO: Misspelling ? 'footerDiectoryRow'
+.footerDiectoryRow {
+  padding-top: $layout-01;
+}
+
+@media (max-width: 673px) {
+  .footerButtonCol button {
+    float: left;
+    // margin-left: $layout-01;
+  }
+
+  .footerButtonCol {
+    margin-top: $layout-03;
+    display: flex;
+  }
+
+  .footerFollowSection p {
+    // float: right;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+@media (max-width: 600px) {
+  .footerLinkCol {
+    div {
+      width: 50%;
+    }
+
+    .hide-on-mobile {
+      display: none;
+    }
+  }
+
+  .footerLinkColMobile {
+    width: 100%;
+    margin-top: 40px;
+  }
+}
+
+@media (min-width: 601px) {
+  .footerLinkColMobile {
+    display: none;
+  }
+}

@@ -83,6 +83,8 @@ ul :global(.bx--list--unordered) {
   padding-right: $spacing-05;
 }
 
+<<<<<<< HEAD
+=======
 :global(.bx--list--ordered) .list-item,
 :global(.bx--list--unordered) .list-item {
   @include carbon--type-style('body-long-02');
@@ -103,6 +105,7 @@ ul :global(.bx--list--unordered) {
 }
 
 // aligns UNnested ordered list item to body copy
+>>>>>>> main
 :global(.bx--list--ordered:not(.bx--list--nested)) {
   margin-left: 1ch;
 }
@@ -138,6 +141,18 @@ ul :global(.bx--list--unordered) {
   }
 }
 
+<<<<<<< HEAD
+:global(.bx--list--ordered) .list-item,
+:global(.bx--list--unordered) .list-item {
+  @include carbon--type-style('body-long-02');
+  padding-right: 0;
+  width: 100%;
+  margin-left: $spacing-05;
+  padding-left: $spacing-02;
+}
+
+=======
+>>>>>>> main
 :global(.container--dark) :global(.bx--list__item) {
   color: $carbon--white-0;
 }

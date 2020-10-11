@@ -2,13 +2,12 @@
   Gatsby Theme Carbon
 </h1>
 
-The Gatsby Carbon theme includes all the configuration you need to build a beautiful site inspired by the [Carbon Design System](https://www.carbondesignsystem.com).
+---
 
-## Resources
+### Usage 
 
-- [Contribution guidelines](.github/CONTRIBUTING.md)
-- [Getting Started](https://gatsby-theme-carbon.now.sh/getting-started)
-- [Guides](https://gatsby-theme-carbon.now.sh/guides/configuration)
-- [Components](https://gatsby-theme-carbon.now.sh/components/markdown)
-- [Demo](https://gatsby-theme-carbon.now.sh/demo)
-- [Gallery](https://gatsby-theme-carbon.now.sh/gallery)
+`npm install --save gatsby-theme-carbon-base`
+
+### License
+
+Apache-2.0
