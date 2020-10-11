@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
   "name": "gatsby-theme-carbon-base",
   "version": "1.30.0",
+=======
+  "name": "gatsby-theme-carbon",
+  "version": "1.26.18",
+>>>>>>> main
   "main": "index.js",
   "author": "vpicone <vp@vincepic.one> (@vpicone)",
   "repository": {
@@ -41,13 +46,14 @@
     "gatsby-plugin-lunr": "^1.5.2",
     "gatsby-plugin-manifest": "^2.3.2",
     "gatsby-plugin-mdx": "^1.1.2",
+    "gatsby-plugin-offline": "^3.2.28",
     "gatsby-plugin-react-helmet": "^3.2.1",
     "gatsby-plugin-sass": "^2.2.1",
     "gatsby-plugin-sass-resources": "^2.0.0",
     "gatsby-plugin-sharp": "^2.5.3",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.8",
     "gatsby-remark-copy-linked-files": "^2.2.1",
-    "gatsby-remark-images": "^3.2.1",
+    "gatsby-remark-images": "^3.3.33",
     "gatsby-remark-responsive-iframe": "^2.3.1",
     "gatsby-remark-smartypants": "^2.2.1",
     "gatsby-remark-unwrap-images": "^1.0.1",
@@ -61,6 +67,7 @@
     "prop-types": "^15.7.2",
     "react-helmet": "^6.0.0-beta",
     "react-transition-group": "^4.3.0",
+    "react-use": "^15.3.4",
     "remark-slug": "^6.0.0",
     "slugify": "^1.3.4",
     "smooth-scroll": "^16.1.3",

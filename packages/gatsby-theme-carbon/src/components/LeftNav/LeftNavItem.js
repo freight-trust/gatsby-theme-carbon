@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  *   SPDX-License-Identifier: Apache-2.0
  *   SPDXVersion: SPDX-2.2
@@ -20,18 +21,54 @@ import { Link } from "gatsby";
 import { Location } from "@reach/router";
 import cx from "classnames";
 import { SideNavLink, SideNavMenu, SideNavMenuItem } from "carbon-components-react";
+=======
+import React, { useContext } from 'react';
+import { Link } from 'gatsby';
+import { Location } from '@reach/router';
+import cx from 'classnames';
+import useNetwork from 'react-use/lib/useNetwork';
+
+import {
+  SideNavLink,
+  SideNavMenu,
+  SideNavMenuItem,
+} from 'carbon-components-react';
+>>>>>>> main
 
 import styles from "gatsby-theme-carbon/src/components/LeftNav/LeftNav.module.scss";
 
+<<<<<<< HEAD
 import NavContext from "gatsby-theme-carbon/src/util/context/NavContext";
 import usePathprefix from "gatsby-theme-carbon/src/util/hooks/usePathprefix";
+=======
+import NavContext from '../../util/context/NavContext';
+import usePathprefix from '../../util/hooks/usePathprefix';
+import useMetadata from '../../util/hooks/useMetadata';
+
+export const SERVICE_WORKER_UPDATE_FOUND = 'GTC-ServiceWorkerUpdateFound';
+>>>>>>> main
 
 const LeftNavItem = props => {
   const { items, category, hasDivider, isSpace } = props;
   const { toggleNavState } = useContext(NavContext);
+<<<<<<< HEAD
   const closeLeftNav = () => {
     toggleNavState(`leftNavIsOpen`, `close`);
+=======
+  const { isServiceWorkerEnabled } = useMetadata();
+  const isOnline = useNetwork();
+
+  const handleClick = (event, to) => {
+    toggleNavState('leftNavIsOpen', 'close');
+    if (isServiceWorkerEnabled) {
+      if (isOnline && window[SERVICE_WORKER_UPDATE_FOUND] === true) {
+        event.preventDefault();
+        window.location.href = to;
+      }
+    }
+>>>>>>> main
   };
+
   const pathPrefix = usePathprefix();
 
   return (
@@ -45,18 +82,23 @@ const LeftNavItem = props => {
         const isActive = items.some(item => item.path.split(`/`)[1] === pathname.split(`/`)[1]);
 
         if (items.length === 1) {
+          const to = items[0].path;
           return (
             <>
               <SideNavLink
-                onClick={closeLeftNav}
+                onClick={(e) => handleClick(e, to)}
                 icon={<span>dummy icon</span>}
                 element={Link}
                 className={cx({
                   [styles.currentItem]: isActive,
                 })}
                 isActive={isActive}
+<<<<<<< HEAD
                 to={`${items[0].path}`}
               >
+=======
+                to={to}>
+>>>>>>> main
                 {category}
               </SideNavLink>
               {hasDivider && <hr className={styles.divider} />}
@@ -69,9 +111,18 @@ const LeftNavItem = props => {
               icon={<span>dummy icon</span>}
               isActive={isActive} // TODO similar categories
               defaultExpanded={isActive}
+<<<<<<< HEAD
               title={category}
             >
               <SubNavItems onClick={closeLeftNav} items={items} pathname={pathname} />
+=======
+              title={category}>
+              <SubNavItems
+                onClick={handleClick}
+                items={items}
+                pathname={pathname}
+              />
+>>>>>>> main
             </SideNavMenu>
             {hasDivider && <hr className={styles.divider} />}
           </>
@@ -84,15 +135,21 @@ const LeftNavItem = props => {
 const SubNavItems = ({ items, pathname, onClick }) =>
   items.map((item, i) => {
     const hasActiveTab =
+<<<<<<< HEAD
       `${item.path.split(`/`)[1]}/${item.path.split(`/`)[2]}` ===
       `${pathname.split(`/`)[1]}/${pathname.split(`/`)[2]}`;
+=======
+      `${item.path.split('/')[1]}/${item.path.split('/')[2]}` ===
+      `${pathname.split('/')[1]}/${pathname.split('/')[2]}`;
+    const to = item.path;
+>>>>>>> main
     return (
       <SideNavMenuItem
-        to={`${item.path}`}
+        to={to}
         className={cx({
           [styles.linkText__dark]: pathname === `/`,
         })}
-        onClick={onClick}
+        onClick={(e) => onClick(e, to)}
         element={Link}
         isActive={hasActiveTab}
         key={i}

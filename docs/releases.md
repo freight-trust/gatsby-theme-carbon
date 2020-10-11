@@ -13,7 +13,9 @@ If a patch is narrow in scope(impacting a small subset of sites) we'll hold off
 on releasing the patch for the reasons mentioned above.
 
 # How to publish a new theme version
+We publish to npm, create a GitHub release, and generate changelogs by using [release-it](https://www.npmjs.com/package/release-it). All of this is tucked behind a single GitHub action which Aux Squad can deploy manually.
 
+<<<<<<< HEAD
 1. Checkout `main` and `git pull upstream main`
 2. Run `yarn install` to make sure you have the latest version of all the dev
    dependencies
@@ -30,6 +32,10 @@ on releasing the patch for the reasons mentioned above.
    3. Follow the previous release as a template indicating new features and
       fixes while linking to relevent documentation as appropriate
 7. If this of feature or breaking release, post release notes to Slack channel
+=======
+1. On the [release workflow](https://github.com/carbon-design-system/gatsby-theme-carbon/actions?query=workflow%3ARelease) page click the `Run workflow` dropdown, then click the green button inside.
+2. Wait 10-15s for it to start
+>>>>>>> main
 
 # Updating the starter
 

@@ -1,8 +1,13 @@
 {
+<<<<<<< HEAD
   "packages": [
     "packages/*"
   ],
   "version": "1.30.0",
+=======
+  "packages": ["packages/*"],
+  "version": "1.26.13",
+>>>>>>> main
   "npmClient": "yarn",
   "useWorkspaces": true,
   "publish": {

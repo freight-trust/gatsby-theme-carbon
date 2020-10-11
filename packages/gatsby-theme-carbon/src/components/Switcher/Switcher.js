@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  *   SPDX-License-Identifier: Apache-2.0
  *   SPDXVersion: SPDX-2.2
@@ -22,16 +23,67 @@ import { nav, open, divider, link, linkDisabled } from "./Switcher.module.scss";
 
 const Switcher = ({ children }) => {
   const { switcherIsOpen } = useContext(NavContext);
+=======
+import React, {
+  useContext,
+  useRef,
+  useLayoutEffect,
+  useEffect,
+  useState,
+} from 'react';
+import cx from 'classnames';
+import useMedia from 'use-media';
+import NavContext from '../../util/context/NavContext';
+import { nav, open, divider, link, linkDisabled } from './Switcher.module.scss';
+
+const Switcher = ({ children }) => {
+  const lgBreakpoint = useMedia('min-width: 1056px');
+  const { switcherIsOpen, toggleNavState } = useContext(NavContext);
+  const listRef = useRef(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    const collapseOpenNavs = function (e) {
+      if (e.which === 27) {
+        toggleNavState('switcherIsOpen', 'close');
+      }
+    };
+
+    document.addEventListener('keyup', collapseOpenNavs);
+
+    return function cleanup() {
+      document.removeEventListener('keyup', collapseOpenNavs);
+    };
+  }, [toggleNavState]);
+
+  // calculate and update height
+  useLayoutEffect(() => {
+    if (switcherIsOpen) {
+      setHeight(listRef.current.offsetHeight + 40);
+    } else {
+      setHeight(0);
+    }
+  }, [listRef, switcherIsOpen]);
+
+  const maxHeight = !lgBreakpoint && switcherIsOpen ? '100%' : `${height}px`;
+>>>>>>> main
 
   return (
     // eslint-disable-next-line jsx-a11y/role-supports-aria-props
     <nav
       className={cx(nav, { [open]: switcherIsOpen })}
+<<<<<<< HEAD
       aria-label='Freight Trust & Clearing'
       aria-expanded={switcherIsOpen}
       tabIndex='-1'
     >
       <ul>{children}</ul>
+=======
+      aria-label="IBM Design ecosystem"
+      tabIndex="-1"
+      style={{ maxHeight }}>
+      <ul ref={listRef}>{children}</ul>
+>>>>>>> main
     </nav>
   );
 };
@@ -67,12 +119,45 @@ export const SwitcherLink = ({ disabled, children, href: hrefProp, ...rest }) =>
 // Note: if you change this, update the max-height in the switcher stylesheet
 const DefaultChildren = () => (
   <>
+<<<<<<< HEAD
     <SwitcherLink href='#top'>Trade Compliance</SwitcherLink>
     <SwitcherLink href='#top'>Trade Messages</SwitcherLink>
     <SwitcherLink href='#top'>Trade Finance</SwitcherLink>
     <SwitcherLink href='#top'>Corporate</SwitcherLink>
     <SwitcherLink href='#top'>Support</SwitcherLink>
     <SwitcherLink href='#top'>Contact</SwitcherLink>
+=======
+    <SwitcherLink href="https://ibm.com/design">IBM Design</SwitcherLink>
+    <SwitcherLink href="https://ibm.com/design/language">
+      IBM Design Language
+    </SwitcherLink>
+    <SwitcherLink href="https://ibm.com/brand">IBM Brand Center</SwitcherLink>
+    <SwitcherLink href="https://www.ibm.com/able/">
+      IBM Accessibility
+    </SwitcherLink>
+    <SwitcherDivider>Design disciplines</SwitcherDivider>
+    <SwitcherLink href="https://www.carbondesignsystem.com/">
+      Product
+    </SwitcherLink>
+    <SwitcherLink href="https://www.ibm.com/standards/web/ibm-dotcom-library/">
+      Digital
+    </SwitcherLink>
+    <SwitcherLink href="https://www.ibm.com/design/event/">Event</SwitcherLink>
+    <SwitcherLink disabled>Workplace</SwitcherLink>
+    <SwitcherDivider>Design practices</SwitcherDivider>
+    <SwitcherLink href="https://www.ibm.com/design/thinking/">
+      Enterprise Design Thinking
+    </SwitcherLink>
+    <SwitcherLink href="https://www.ibm.com/design/research/">
+      IBM Design Research
+    </SwitcherLink>
+    <SwitcherLink href="https://www.ibm.com/design/ai">
+      IBM Design for AI
+    </SwitcherLink>
+    <SwitcherLink href="https://www.ibm.com/services/ibmix/">
+      IBM iX
+    </SwitcherLink>
+>>>>>>> main
   </>
 );
 

@@ -3,8 +3,8 @@ import Layout from '../components/Layout';
 import { HomepageBanner, HomepageCallout } from '../components/Homepage';
 import Carbon from '../images/carbon.jpg';
 import Main from '../components/Main';
+import Utils from '../components/Utils';
 
-import BackToTopBtn from '../components/BackToTopBtn';
 import NextPrevious from '../components/NextPrevious';
 
 const Homepage = ({
@@ -31,7 +31,7 @@ const Homepage = ({
       <Main>{children}</Main>
       {SecondCallout}
       <NextPrevious isHomepage location={location} pageContext={pageContext} />
-      <BackToTopBtn />
+      <Utils />
     </Layout>
   );
 };

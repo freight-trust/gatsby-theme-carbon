@@ -79,6 +79,7 @@ export default class ArticleCard extends React.Component {
       );
     } else {
       cardContainer = (
+<<<<<<< HEAD
         <a
           target='_blank'
           rel='noopener noreferrer'
@@ -86,6 +87,9 @@ export default class ArticleCard extends React.Component {
           className={carbonTileclassNames}
           {...rest}
         >
+=======
+        <a href={href} className={carbonTileclassNames} {...rest}>
+>>>>>>> main
           {cardContent}
         </a>
       );

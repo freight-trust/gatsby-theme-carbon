@@ -16,7 +16,11 @@
 }
 
 .#{$prefix}--article-card__title {
+<<<<<<< HEAD
   @include carbon--type-style("productive-heading-03");
+=======
+  @include carbon--type-style('body-short-02');
+>>>>>>> main
   text-decoration: none;
   color: $text-01;
 }
